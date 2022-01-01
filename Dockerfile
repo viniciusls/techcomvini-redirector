@@ -8,6 +8,6 @@ RUN yarn install
 
 COPY . /app
 
-CMD node index.js
+CMD yarn start
 
 EXPOSE 3000
