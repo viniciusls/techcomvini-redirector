@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tcv-redirector-app
+  namespace: tcv
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tcv-redirector-app
+  template:
+    metadata:
+      labels:
+        app: tcv-redirector-app
+    spec:
+      containers:
+        - name: tcv-redirector-app
+          image: viniciusls/tcv:redirector-app
+          env:
+            - name: CHANNEL_URL
+              value: https://www.youtube.com/channel/UC-12y_LluQKQ1Bh55cMgPJw/
+          ports:
+            - containerPort: 3000
+      imagePullSecrets:
+        - name: tcv-creds
