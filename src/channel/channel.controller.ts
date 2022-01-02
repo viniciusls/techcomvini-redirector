@@ -1,6 +1,6 @@
 import { Controller, Get, Res } from '@nestjs/common';
 
-@Controller('channel')
+@Controller('canal')
 export class ChannelController {
   @Get()
   redirect(@Res() res) {
